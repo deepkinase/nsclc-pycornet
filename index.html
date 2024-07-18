@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Exo&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+        } 
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100vh; /* Full viewport height */
+            background-image: url(img/constellations-2609647_1280.jpg);
+            background-size: cover;
+        }
+
+        .box {
+            flex: 50%; /* Each box takes up 50% of the container's width */
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers the entire div */
+            opacity: 0.8; /* Adjust as needed */
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+            border-radius: 15px; /* Rounded corners */
+            color: white; /* Text color */
+            font-family: 'Exo', sans-serif; /* Exo font for text */
+            padding: 20px; 
+
+        }
+
+        .icon {
+            width: 128px !important; /* Adjust as needed */
+            height: auto; /* Adjust as needed */
+            opacity: 1 !important;
+        }
+
+        .title, .description {
+            color: white; /* Adjust text color as needed */
+        }
+
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .title a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .content a, .content-box a:visited {
+        text-decoration: none;
+        color: inherit;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="content">
+                <a href="NSCLC.pY.normal.dark-sky.html"><img src="icon/mosaic.png" href="yplus" class="icon" alt="Icon 1">
+                <div class="title">NATs</div>
+                </a>
+                <div class="description">Network for Normal Adjacent Tissues</div>
+            </div>
+        </div>
+        <div class="box">
+            
+            <div class="content">
+                <a href="NSCLC.pY.tumors.dark-sky.html"><img src="icon/starry-night.png" class="icon" alt="Icon 2">
+                <div class="title">Tumors</div>
+                </a>
+                <div class="description">Network for Tumors</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
