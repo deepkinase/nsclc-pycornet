@@ -5,13 +5,12 @@
     <style>
         body {
             margin: 0;
+            font-family: 'Exo', sans-serif;
         } 
         .container {
             display: flex;
             flex-wrap: wrap;
             height: 100vh; /* Full viewport height */
-            background-image: url(img/constellations-2609647_1280.jpg);
-            background-size: cover;
         }
 
         .box {
@@ -65,27 +64,118 @@
         .content a, .content-box a:visited {
         text-decoration: none;
         color: inherit;
-}
+        }
+
+        .page-title {
+            text-align: center;
+            position: fixed;
+            margin: 20px 25vw;
+            font-size: 2.5em;
+            color: white;
+            z-index: 10;
+        }
+        .readme-container {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .readme-link {
+            cursor: pointer;
+            color: gold;
+            text-decoration: underline;
+            font-size: 0.4em;
+        }
+        .readme-content {
+            display: none;
+            margin: 20px;
+            text-align: left;
+        }
     </style>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var readmeContent = document.getElementById("readme-content");
+            readmeContent.style.display = "none";
+        });
+
+        function toggleReadme() {
+            var readmeContent = document.getElementById("readme-content");
+            if (readmeContent.style.display === "none" || readmeContent.style.display === "") {
+                readmeContent.style.display = "block";
+                readmeContent.scrollIntoView({ behavior: "smooth" });
+            } else {
+                readmeContent.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
+        <div class="page-title">Illuminating the Kinase Activity Starmap in NSCLC via Tyrosine Phosphoproteomics
+        <div class="readme-link" onclick="toggleReadme()">View Project Details</div></div>
+    
         <div class="box">
+            <img src="img/normal-static.png" alt="Normal">
             <div class="content">
-                <a href="NSCLC.pY.normal.dark-sky.html"><img src="icon/mosaic.png" href="yplus" class="icon" alt="Icon 1">
-                <div class="title">NATs</div>
-                </a>
-                <div class="description">Network for Normal Adjacent Tissues</div>
+                <a href="NSCLC.pY.normal.dark-sky.html"><!-- <img src="icon/mosaic.png" href="yplus" class="icon" alt="Icon 1"> -->
+                <div class="title">👆 NATs</div>
+                
+                <div class="description">Click to view the interactive version of the Network for Normal Adjacent Tissues</div></a>
             </div>
         </div>
         <div class="box">
-            
+            <img src="img/tumors-static.png" alt="Tumors">
             <div class="content">
-                <a href="NSCLC.pY.tumors.dark-sky.html"><img src="icon/starry-night.png" class="icon" alt="Icon 2">
-                <div class="title">Tumors</div>
-                </a>
-                <div class="description">Network for Tumors</div>
+                <a href="NSCLC.pY.tumors.dark-sky.html"><!-- <img src="icon/starry-night.png" class="icon" alt="Icon 2"> -->
+                <div class="title">👆 Tumors</div>
+                
+                <div class="description">Click to view the interactive version of the Network for Tumors</div></a>
             </div>
+        </div>
+    </div>
+    <div class="readme-container">
+        
+        <div class="readme-content" id="readme-content">
+            <h2>Overview</h2>
+            <p>This project features an interactive force network visualization of tyrosine phosphorylation (pY) correlations in non-small cell lung cancer (NSCLC) samples. It aims to reveal distinct phosphorylation profiles and their implications for cancer research and personalized therapy.</p>
+            
+            <h2>Features</h2>
+            <ul>
+                <li>Interactive force network visualization</li>
+                <li>Differentiation between tumor and normal adjacent tissues (NATs)</li>
+                <li>Key kinase activity clusters (constellations): Adherens Junctions, Cancer Drivers, Blood Cells, and Immune Signaling</li>
+                <li>Insights into molecular mechanisms and potential therapeutic targets</li>
+            </ul>
+            
+            <h2>Usage</h2>
+            <p>Access the interactive network <a href="https://deepkinase.github.io/nsclc-pycornet/">here</a>.</p>
+            
+            <h2>Local Setup</h2>
+            <ol>
+                <li>Clone the repository:
+                    <pre><code>git clone https://github.com/yourusername/nsclc-pycornet.git</code></pre>
+                </li>
+                <li>Navigate to the project directory:
+                    <pre><code>cd nsclc-pycornet</code></pre>
+                </li>
+                <li>Open the <code>correlation_network.html</code> file in a web browser to view the network locally.</li>
+            </ol>
+            
+            <h2>Data</h2>
+            <p>The data includes tyrosine phosphorylation sites identified and quantified in 74 NSCLC patients, analyzed using SH2-Superbinder and data-independent acquisition mass spectrometry.</p>
+            
+            <h2>Citation</h2>
+            <p>If you use this dataset or visualization in your research, please cite our manuscript:
+                <blockquote>Illuminating the Kinase Activity Starmap in NSCLC via Tyrosine Phosphoproteomics</blockquote>
+            </p>
+            
+            <h2>Contributing</h2>
+            <p>We welcome contributions. Fork the repository and create a pull request with your changes.</p>
+            
+            <h2>License</h2>
+            <p>This project is licensed under the Creative Commons Attribution-NonCommercial (CC-BY-NC) License. See the <a href="https://creativecommons.org/licenses/by-nc/4.0/">LICENSE</a> file for details.</p>
+            
+            <h2>Contact</h2>
+            <p>For questions or feedback, please contact Yi Liu at [yi@deepkinase.com].</p>
         </div>
     </div>
 </body>
