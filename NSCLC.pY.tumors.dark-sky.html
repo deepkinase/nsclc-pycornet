@@ -8,12 +8,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
+    <style>
+        
+        /* Style for the button */
+        .button {
+            position: fixed;
+            top: 20px; /* Adjust as needed for spacing from bottom */
+            right: 20px;  /* Adjust as needed for spacing from right */
+            padding: 10px 20px;
+            border: 2px solid cyan;
+            border-radius: 25px; /* Makes the border rounded */
+            background-color: transparent; /* Transparent fill */
+            color: cyan; /* Cyan text color */
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .button:hover {
+            background-color: cyan; /* Change background on hover */
+            color: black; /* Change text color on hover */
+        }
+    </style>
 </head>
 <body style="margin:0">
     <div id="c9cfd901301c455399e8e8d9ac805cca" class="chart-container" style="width:100vw; height:100vh; "></div>
+    <button class="button" onclick="downloadSVG()">Download SVG</button>
     <script>
         var chart_c9cfd901301c455399e8e8d9ac805cca = echarts.init(
-            document.getElementById('c9cfd901301c455399e8e8d9ac805cca'), 'dark', {renderer: 'canvas'});
+            document.getElementById('c9cfd901301c455399e8e8d9ac805cca'), 'dark', {renderer: 'svg'});
         var option_c9cfd901301c455399e8e8d9ac805cca = {
     "animation": true,
     "animationThreshold": 30000,
@@ -14464,6 +14489,20 @@
     ]
 };
         chart_c9cfd901301c455399e8e8d9ac805cca.setOption(option_c9cfd901301c455399e8e8d9ac805cca);
+        function downloadSVG() {
+            // Wait for the animation to settle before capturing the SVG
+            setTimeout(function() {
+                var svgData = chart_c9cfd901301c455399e8e8d9ac805cca.getDataURL({
+                    type: 'svg',
+                    backgroundColor: 'rgba(0, 0, 0, 0)'
+                });
+
+                var downloadLink = document.createElement('a');
+                downloadLink.href = svgData;
+                downloadLink.download = 'chart.svg';
+                downloadLink.click();
+            }, 200);  // Adjust the delay based on the animation duration
+        }
     </script>
 </body>
 </html>
